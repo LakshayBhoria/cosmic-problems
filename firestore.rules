@@ -1,0 +1,14 @@
+rules_version = '2';
+
+// This app never talks to Firestore from the browser — the React frontend
+// only calls the Express API, and the API uses the Admin SDK, which bypasses
+// these rules entirely. So the correct, secure default here is "deny
+// everything" — it blocks anyone who tries to hit your Firestore database
+// directly with a client SDK and your project's public config.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
