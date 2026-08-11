@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+html, body, #root { height: 100%; }
+
+body {
+  background-color: #07070d;
+  color: #e8e9f5;
+  font-family: 'Inter', sans-serif;
+  background-image:
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(124,92,252,0.16), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 10%, rgba(35,217,217,0.10), transparent 55%),
+    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 70% 15%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,0.35), transparent),
+    radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at 55% 45%, rgba(255,255,255,0.3), transparent);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+::selection { background: #7c5cfc55; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #22243a; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #2e3050; }
+
+*:focus-visible {
+  outline: 2px solid #7c5cfc;
+  outline-offset: 2px;
+}
+
+.font-display { font-family: 'Space Grotesk', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8b8da8;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+
+.status-open { color: #23d9d9; border-color: #23d9d922; background: #23d9d914; }
+.status-discussing { color: #ffd166; border-color: #ffd16622; background: #ffd16614; }
+.status-solved { color: #7c5cfc; border-color: #7c5cfc22; background: #7c5cfc14; }
+
+.status-dot { width: 5px; height: 5px; border-radius: 999px; background: currentColor; box-shadow: 0 0 6px currentColor; }
+
+.card {
+  background: #12131f;
+  border: 1px solid #22243a;
+  border-radius: 16px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #7c5cfc, #6247e0);
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: box-shadow 0.15s ease, transform 0.1s ease;
+}
+.btn-primary:hover { box-shadow: 0 0 20px rgba(124,92,252,0.45); }
+.btn-primary:active { transform: scale(0.98); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; box-shadow: none; }
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid #22243a;
+  color: #e8e9f5;
+  border-radius: 10px;
+}
+.btn-ghost:hover { border-color: #7c5cfc55; background: #7c5cfc0d; }
+
+.input-field {
+  background: #0b0c14;
+  border: 1px solid #22243a;
+  border-radius: 10px;
+  color: #e8e9f5;
+  padding: 10px 14px;
+  width: 100%;
+  font-size: 0.9rem;
+}
+.input-field::placeholder { color: #5c5e78; }
+.input-field:focus { border-color: #7c5cfc; outline: none; }
+
+.tab-underline {
+  position: relative;
+}
+.tab-underline.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 2px;
+  background: #7c5cfc;
+  box-shadow: 0 0 8px #7c5cfc;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+.animate-twinkle { animation: twinkle 2.4s ease-in-out infinite; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-rise { animation: rise 0.25s ease-out; }
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
